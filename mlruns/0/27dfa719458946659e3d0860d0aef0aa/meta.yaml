@@ -1,0 +1,14 @@
+artifact_uri: file:///home/uyen/mlops-course-students/mlruns/0/27dfa719458946659e3d0860d0aef0aa/artifacts
+end_time: 1761400398098
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 27dfa719458946659e3d0860d0aef0aa
+run_name: housing_linear_regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761400398074
+status: 3
+tags: []
+user_id: uyen

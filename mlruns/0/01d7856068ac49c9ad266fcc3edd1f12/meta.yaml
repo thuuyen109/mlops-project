@@ -1,0 +1,14 @@
+artifact_uri: file:///home/uyen/mlops-course-students/mlruns/0/01d7856068ac49c9ad266fcc3edd1f12/artifacts
+end_time: 1761400401003
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 01d7856068ac49c9ad266fcc3edd1f12
+run_name: auspicious-moth-459
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761400398107
+status: 3
+tags: []
+user_id: uyen

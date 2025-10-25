@@ -1,0 +1,10 @@
+artifact_location: file:///home/uyen/mlops-course-students/mlruns/0/models/m-887b2f88721c4a4ca850fd95a01cfad9/artifacts
+creation_timestamp: 1761400398130
+experiment_id: '0'
+last_updated_timestamp: 1761400401001
+model_id: m-887b2f88721c4a4ca850fd95a01cfad9
+model_type: null
+name: model
+source_run_id: 01d7856068ac49c9ad266fcc3edd1f12
+status: 2
+status_message: null

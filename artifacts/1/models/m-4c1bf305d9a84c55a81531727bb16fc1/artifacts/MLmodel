@@ -1,0 +1,22 @@
+artifact_path: /home/uyen/mlops-course-students/artifacts/1/models/m-4c1bf305d9a84c55a81531727bb16fc1/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.6
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.5.1
+model_id: m-4c1bf305d9a84c55a81531727bb16fc1
+model_size_bytes: 2118
+model_uuid: m-4c1bf305d9a84c55a81531727bb16fc1
+prompts: null
+run_id: 80a6af63550245648ff08285020d1368
+utc_time_created: '2025-10-25 14:36:57.832193'
