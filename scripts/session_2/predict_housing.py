@@ -4,8 +4,8 @@ import numpy as np
 
 mlflow.set_tracking_uri("http://127.0.0.1:8080")
 
-model_name = "ver_1"
-model_version = "1"
+model_name = "housing_price"
+model_version = "2"
 
 model_uri = f"models:/{model_name}/{model_version}"
 

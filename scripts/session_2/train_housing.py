@@ -18,12 +18,22 @@ mlflow.set_tracking_uri("http://localhost:8080")
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s - %(message)s",
+    filename="logs/train_housing.log",        # đường dẫn file log
+    filemode="w",                     # 'w' = ghi đè, 'a' = append
 )
+
 logger = logging.getLogger("housing")
+logger.addHandler(logging.StreamHandler())
 
 
 def train():
-    mlflow.set_experiment("housing_price_training")
+    model_name = "housing_price_model"
+    _version = "3"
+    _max_iter = 2000
+    _tol = 1e-4
+    _random_state = 24
+
+    mlflow.set_experiment(model_name)
     # Paths
     PROJECT_ROOT = Path(os.getcwd())
     DATA_PATH = PROJECT_ROOT / "data" / "housing.csv"
@@ -55,7 +65,7 @@ def train():
 
     logger.info("Splitting train/test...")
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
+        X, y, test_size=0.2, random_state=_random_state
     )
 
     logger.info("Building pipeline...")
@@ -73,10 +83,10 @@ def train():
             (
                 "regressor",
                 SGDRegressor(
-                    max_iter=5000,
-                    tol=1e-4,
+                    max_iter=_max_iter,
+                    tol=_tol,
                     learning_rate="optimal",
-                    random_state=42,
+                    random_state=_random_state,
                     verbose=1,
                 ),
             ),
@@ -84,11 +94,11 @@ def train():
     )
 
     logger.info("Training model...")
-    with mlflow.start_run(run_name="housing_linear_regression_1") as run:
-        mlflow.log_param( "max_iter", 2000,)
-        mlflow.log_param( "tol", 1e-4)
+    with mlflow.start_run(run_name=f"{model_name}_v{_version}") as run:
+        mlflow.log_param( "max_iter", _max_iter)
+        mlflow.log_param( "tol", _tol)
         mlflow.log_param( "learning_rate", "optimal")
-        mlflow.log_param( "random_state", 24)
+        mlflow.log_param( "random_state", _random_state)
         model.fit(X_train, y_train)
 
         # Evaluate model performance
