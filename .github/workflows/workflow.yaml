@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'scripts/session_6/hello_world.txt'
+  pull_request:
+    paths:
+      - 'scripts/session_6/hello_world.txt'
 jobs:
   call-hello-world:
     runs-on: ubuntu-latest
@@ -11,4 +14,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Display Hello World
-        run: cat scripts/session_6/hello_world.txt
+        run: |
+          if ['"${{ github.event_name }}"' == 'push']; then
+            cat scripts/session_6/hello_world.txt
+          elif ['"${{ github.event_name }}"' == 'pull_request']; then
+            cat scripts/session_6/pull_request_test.txt
+          else
+            echo "No valid event found."
+            exit 1
+          fi
