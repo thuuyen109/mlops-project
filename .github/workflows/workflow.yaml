@@ -1,0 +1,14 @@
+name: workflow
+on:
+  push:
+    paths:
+      - 'scripts/session_6/hello_world.txt'
+jobs:
+  call-hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Display Hello World
+        run: cat scripts/session_6/hello_world.txt
