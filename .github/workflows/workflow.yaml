@@ -5,7 +5,14 @@ on:
       - 'scripts/session_6/hello_world.txt'
   pull_request:
     paths:
-      - 'scripts/session_6/hello_world.txt'
+      - 'scripts/session_6/pull_request_test.txt'
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Who runs the workflow'
+        required: true
+        
+
 jobs:
   call-hello-world:
     runs-on: ubuntu-latest
@@ -13,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Display Hello World
+      - name: Print content based on event
         run: |
           if [ "$GITHUB_EVENT_NAME" == 'push' ]; then
             cat scripts/session_6/hello_world.txt
