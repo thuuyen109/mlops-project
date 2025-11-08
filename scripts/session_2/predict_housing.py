@@ -1,8 +1,9 @@
 import mlflow.sklearn
 import pandas as pd
 import numpy as np
+from fastapi import APIRouter, FastAPI
 
-mlflow.set_tracking_uri("http://127.0.0.1:8080")
+# mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 model_name = "housing_price"
 model_version = "2"

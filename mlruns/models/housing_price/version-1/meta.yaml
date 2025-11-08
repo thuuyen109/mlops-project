@@ -1,0 +1,15 @@
+creation_timestamp: 1761748989892
+current_stage: None
+deployment_job_state: null
+description: ''
+last_updated_timestamp: 1761748989892
+model_id: m-06418e5699ba436b85a1fd6aa818fa2d
+name: housing_price
+run_id: 80f2da9ba56f480fabbf3f2444aa9121
+run_link: ''
+source: mlflow-artifacts:/717022706307876159/models/m-06418e5699ba436b85a1fd6aa818fa2d/artifacts
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/717022706307876159/models/m-06418e5699ba436b85a1fd6aa818fa2d/artifacts
+user_id: null
+version: 1

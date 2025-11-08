@@ -11,7 +11,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import mlflow
 
-mlflow.set_tracking_uri("http://localhost:8080")
+mlflow.set_tracking_uri("http://localhost:5000")
 
 
 # Configure logging
