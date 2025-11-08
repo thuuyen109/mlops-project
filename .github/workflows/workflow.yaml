@@ -15,9 +15,9 @@ jobs:
 
       - name: Display Hello World
         run: |
-          if ['"${{ github.event_name }}"' == 'push']; then
+          if [ "$GITHUB_EVENT_NAME" == 'push' ]; then
             cat scripts/session_6/hello_world.txt
-          elif ['"${{ github.event_name }}"' == 'pull_request']; then
+          elif [ "$GITHUB_EVENT_NAME" == 'pull_request' ]; then
             cat scripts/session_6/pull_request_test.txt
           else
             echo "No valid event found."
