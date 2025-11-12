@@ -1,4 +1,5 @@
-name: workflow
+name: Workflow
+
 on:
   push:
     paths:
@@ -9,23 +10,20 @@ on:
   workflow_dispatch:
     inputs:
       runner:
-        description: 'Who runs the workflow'
+        description: "Who runs this workflow?"
         required: true
-        
-
 jobs:
-  call-hello-world:
+  classroom_job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Print content based on event
+      - name: Print latest content
         run: |
           if [[ "$GITHUB_EVENT_NAME" == "push" ]]; then
             cat scripts/session_6/hello_world.txt
           elif [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
             cat scripts/session_6/pull_request_test.txt
           else
-            echo "${{ inputs.runner }}"
+            echo ${{ inputs.runner }}
           fi
