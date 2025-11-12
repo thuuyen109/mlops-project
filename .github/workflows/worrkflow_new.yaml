@@ -23,10 +23,11 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PWD/scripts:$PYTHONPATH" >> $GITHUB_ENV    
       - name: Run tests
         run: pytest --cov
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=/home/uyen/mlops-project/scripts:$PYTHONPATH" >> $GITHUB_ENV
+
 
   deploy_job:
       needs: test_job
